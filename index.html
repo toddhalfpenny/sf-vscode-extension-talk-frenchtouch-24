@@ -4,20 +4,78 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>French Touch Dreamin' 24</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
 		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/frenchtouch.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
 	</head>
 	<body>
 		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+			<div id="slides" class="slides">
+				<!-- 
+					===========================================================
+					HEADER
+				-->
+				<header id='header' class="hidden">
+				</header>
+
+
+				<!-- 
+					===========================================================
+					TITLE
+				-->
+				<section class="slide-title">
+					<img src="assets/imgs/title-slide.svg">
+				</section>
+				
+
+				<!-- 
+					===========================================================
+					SPONSORS
+				-->
+				<section class="has-footer slide-title">
+					<img src="assets/imgs/sponsors.svg">
+				</section>
+
+				<!-- 
+					===========================================================
+					AGENDA
+				-->
+				<section class="has-footer">
+					<h1>Agenda</h1>
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+						<!-- <li>Resources</li> -->
+						<li>Q&amp;A</li>
+					</ul>
+				</section>
+
+
+				<!-- 
+					===========================================================
+					SPONSORS
+				-->
+				<section class="has-footer slide-title">
+					<img src="assets/imgs/sponsors.svg">
+				</section>
+
+
+				<!-- 
+					===========================================================
+					FOOTER
+				-->
+				<footer id='footer' class="hidden">
+					<!-- <p class="author"><a href="https://twitter.com/toddhalfpenny">@toddhalfpenny</a></p> -->					
+					<img src="assets/imgs/inspire-east-logo.png">
+				</footer>
+		
 			</div>
 		</div>
 
@@ -25,16 +83,93 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
 		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
+			// COMMENTED OUT STUFF FROM C'DREAMIN 22 TALK
 			Reveal.initialize({
+				controls: false,
 				hash: true,
+				center: false,
+				//maxScale: 1.8,
+				//margin: 0.18, // Reduced this for NAD as they have a slide background
+				margin: 0,
+				progress: false,
+				width: 1920,
+				height: 1200,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ]
 			});
+			Reveal.on( 'slidechanged', event => {
+				console.log('slidechanged', event.currentSlide);
+				if (event.currentSlide.className.includes('has-header')) {
+					showFooter();
+					showHeader();
+				} else {
+					hideFooter();
+					hideHeader();
+				}
+				if (event.currentSlide.className.includes('has-footer')) {
+					showFooter();
+				} else {
+					hideFooter();
+				}
+				if (event.currentSlide.className.includes('fullvideo')) {
+					hideBackground();
+				} else {
+					showBackground();
+				}
+				if (event.currentSlide.className.includes('is-title')) {
+					let el = document.getElementById('slides');
+					if (!el.classList.contains('slide-title')){ 
+						el.classList.add('slide-title');
+					};
+				} else {
+					let el = document.getElementById('slides');
+					if (el.classList.contains('slide-title')){ 
+						el.classList.remove('slide-title');
+					};
+				}
+			} );
+
+			function hideFooter() {
+				console.log('hideFooter');
+				let el = document.getElementById('footer');
+				console.log('footer', el);
+				if (el.className !== 'hidden'){ el.className = 'hidden' };
+			}
+
+			function showFooter() {
+				console.log('showFooter');
+				let el = document.getElementById('footer');
+				console.log('footer', el);
+				if (el.className && el.className === 'hidden'){ el.className = ''};
+			}
+
+			function hideHeader() {
+				console.log('hideHeader');
+				let el = document.getElementById('header');
+				console.log('header', el);
+				if (el.className !== 'hidden'){ el.className = 'hidden' };
+			}
+
+			function showHeader() {
+				console.log('showHeader');
+				let el = document.getElementById('header');
+				console.log('header', el);
+				if (el.className && el.className === 'hidden'){ el.className = ''};
+			}
+
+			function showBackground() {
+				console.log('showBackground');
+				let el = document.getElementById('slides');
+				el.classList.remove("hide-background");
+			}
+
+			function hideBackground() {
+				console.log('hideBackground');
+				let el = document.getElementById('slides');
+				el.classList.add("hide-background");
+			}
 		</script>
 	</body>
 </html>
