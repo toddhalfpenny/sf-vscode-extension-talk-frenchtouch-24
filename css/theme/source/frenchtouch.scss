@@ -29,23 +29,19 @@
 
  
  // Our variables
- :root {
-     --naGreen: #1A6111;
-     --naMainColor: #000;
-     --accent: var(--naGreen);
+ :root {    
+     --ftNavy: #2f5b8d;
+     --ftblue: #04a2e2;
+     --accent: #5895D4;
  }
- 
- // FrenchTouch Colours - TODO
- $ieDarkGreen: #5E898E;
- $ieLightGreen: #76AFB6;
  
  
  // Override theme settings (see ../template/settings.scss)
  $mainFont: 'Calibri',  serif, sans-serif;
  $mainFontSize: 58px;
- $mainColor: #fff;
+ $mainColor: var(--ftblue);
  $headingFont: 'Calibri', Impact, sans-serif;
- $headingColor: $mainColor;
+ $headingColor: var(--ftNavy);
  $headingTextShadow: none;
  $headingTextTransform: none;
  $backgroundColor: #fff;
@@ -62,7 +58,7 @@
  // ---------------------------------------------
  
  .backgrounds {
-    background-color: black;
+    background-color: white;
  }
 
  // Layout
@@ -325,13 +321,14 @@
      height: 570px;
  }
  img.screenshot {
-    //  box-shadow: var(--accent) 5px 8px 35px;
+     box-shadow: var(--accent) 5px 8px 35px;
      border-radius: 0.5em;
      margin-right: 1em;
-     padding: 0.3em;
-     background: white;
+     padding: 0.1em;
+     background: grey;
      /* border: 1px solid black; */
      border-radius: 1em;
+     max-height:80%;
  }
  img.screenshot, video {
     //  box-shadow: var(--accent) 5px 8px 35px;

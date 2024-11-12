@@ -49,14 +49,310 @@
 				<section class="has-footer">
 					<h1>Agenda</h1>
 					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-						<!-- <li>Resources</li> -->
-						<li>Q&amp;A</li>
+						<li class="fragment">Extensions</li>
+						<li class="fragment">Our use case</li>
+						<li class="fragment">Build</li>
+						<li class="fragment">Publish</li>
+						<!-- <li class="fragment">Resources</li> -->
+						<li class="fragment">Q&amp;A</li>
 					</ul>
 				</section>
 
+
+				<!-- 
+					===========================================================
+					EXTENSIONS
+				-->
+				<section class="has-footer">
+					<h1>So... extensions you say?</h1>
+				</section>
+				<section class="fullvideo" class="fullvideo"
+				data-background-size="contain"
+					data-background-video ="assets/vids/ftd-what-are-extensions-02-q23.m4v" >
+					<aside class="notes">
+						<ul>
+							<li>What are they</li>
+							<li>Examples</li>
+							<li>What can they do?</li>
+							<li>Why create one of our own</li>
+						</ul>
+					</aside>
+					
+				</section>
+
+
+				<!-- 
+					===========================================================
+					WHAT ARE WE GOING TO BUILD
+				-->
+				<section class="has-footer">
+					<h1>And just what are we going to build?</h1>
+					<div class="r-stack">
+						<img
+							class="fragment screenshot center"
+							src="assets/imgs/ftd-status-01.png"
+						/>
+						<img
+							class="fragment screenshot center"
+							src="assets/imgs/ftd-status-02.png"
+						/>
+						<img
+							class="fragment screenshot center"
+							src="assets/imgs/ftd-status-03.png"
+						/>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>What are they</li>
+							<li>Examples</li>
+							<li>What can they do?</li>
+							<li>Why create one of our own</li>
+						</ul>
+					</aside>
+					
+				</section>
+
+
+				<!-- 
+					===========================================================
+					LETS GET STARTED
+				-->
+				<section class="has-footer">
+					<h1>Let's get started</h1>
+					<div class="r-stack">
+						<img
+							class="fragment screenshot center"
+							src="assets/imgs/ftd-started-01.png"
+						/>
+						<img
+							class="fragment screenshot center"
+							src="assets/imgs/ftd-started-02.png"
+						/>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>What do we need to build tools?</li>
+						</ul>
+					</aside>					
+				</section>
+				<section class="has-footer">
+					<h1>INSTALL THE TOOLS!!</h1>
+						
+					<pre ><code class="language-yaml">
+						npm install -g yo generator-code vsce 
+						</code></pre>
+					<aside class="notes">
+						<ul>
+							<li>What do we need to build tools?</li>
+						</ul>
+					</aside>					
+				</section>
+				<section class="fullvideo" class="fullvideo"
+				data-background-size="contain"
+					data-background-video ="assets/vids/ftd-getting-started.m4v" >
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
+				<section class="fullvideo" class="fullvideo"
+				data-background-size="contain"
+					data-background-video ="assets/vids/ftd-bonjour-tous-le-monde.m4v" >
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
+
+
+				<!-- 
+					===========================================================
+					WHAT ABOUT OUR USE CASE
+				-->
+				<section class="has-footer">
+					<h1>What about our use case?</h1>
+
+					<div class="fragment">
+						<p class="filename">package.json</p>
+						<pre><code class="language-json" data-trim data-line-numbers="0|8-11">
+...						
+"contributes": {
+	"commands": [
+		{
+			"command": "ftd-talk.helloWorld",
+			"title": "FTD: Hello"
+		},
+		{
+			"command": "ftd-talk.getStatus",
+			"title": "FTD: Get Org Status"
+		}
+	]
+}
+...					
+						</code></pre>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Think about it</li>
+							<li>Iterative</li>
+						</ul>
+					</aside>		
+				</section>
+				<section class="has-footer">
+					<h1></h1>
+
+					<div>
+						<p class="filename">extension.js</p>
+						<pre><code class="language-typescript" data-trim data-line-numbers="0|3-9|6-7|13-22">
+...	
+
+const disposableGetStatus = commands.registerCommand(
+	'ftd-talk.getStatus',
+	async () => {
+		const instance = await showInputBox();
+		console.log(`Instance: ${instance}`);
+	}
+);
+
+...			
+...
+
+async function showInputBox() {
+  const prompt = "Please enter an instance key and hit [enter]";
+  const result = await window.showInputBox({
+    title: "Org Instance:",
+    prompt: prompt,
+    placeHolder: "For example: SWE98",
+  });
+  return result;
+}
+
+...
+						</code></pre>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Think about it</li>
+							<li>Iterative</li>
+						</ul>
+					</aside>		
+				</section>
+				<section class="fullvideo" class="fullvideo"
+				data-background-size="contain"
+					data-background-video ="assets/vids/ftp-input.m4v" >
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
+
+
+				<!-- 
+					===========================================================
+					CALL THE API
+				-->
+				<section class="fullvideo" class="fullvideo"
+				data-background-size="contain"
+					data-background-video ="assets/vids/ftp-status.m4v" >
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
+
+
+				<!-- 
+					===========================================================
+					OUTPUT CHANNELS
+				-->
+				<section class="fullvideo" class="fullvideo"
+				data-background-size="contain"
+					data-background-video ="assets/vids/ftp-output.m4v" >
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
+
+
+				<!-- 
+					===========================================================
+					MODAL
+				-->
+				<section class="fullvideo" class="fullvideo"
+				data-background-size="contain"
+					data-background-video ="assets/vids/ftp-modal.m4v" >
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
+
+
+				<!-- 
+					===========================================================
+					ALIAS + ORG RECORD
+				-->
+				<section class="fullvideo" class="fullvideo"
+				data-background-size="contain"
+					data-background-video ="assets/vids/ftp-org-record.m4v" >
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
+
+
+				<!-- 
+					===========================================================
+					DEFAULT INSTANCE
+				-->
+				<section class="fullvideo" class="fullvideo"
+				data-background-size="contain"
+					data-background-video ="assets/vids/ftp-default-instance.m4v" >
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
+
+
+				<!-- 
+					===========================================================
+					INVOCATION
+				-->
+				<section class="fullvideo" class="fullvideo"
+				data-background-size="contain"
+					data-background-video ="assets/vids/ftp-menu.m4v" >
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
+
+
+				<!-- 
+					===========================================================
+					POLISH
+				-->
+				<section class="fullvideo" class="fullvideo"
+				data-background-size="contain"
+					data-background-video ="assets/vids/ftp-markdown.m4v" >
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
 
 				<!-- 
 					===========================================================
