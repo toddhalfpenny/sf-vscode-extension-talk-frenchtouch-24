@@ -83,7 +83,7 @@ section.has-footer {
 /** =====================================================
 * TITLE SLIDE 
 *========================================================*/
-section#title-slide h1, section#title-slide h2 {
+section#title-slide :is(h1,h2) {
     background-image: none;
     color: #2c415b;
     font-weight: bold;
@@ -170,23 +170,7 @@ footer {
 }
 
 
-header {
-//  background-color: white;
-//  border-bottom: 0.4em solid var(--naGreen);
-//  display: flex;
-//  justify-content: space-around;
-//  font-size: 0.8em;
-//  position: fixed;
-//  top: -5%;
-//  width: 100%
-}
-
-.reveal header img {
-    max-width: 15%;
-    object-fit: scale-down;
-}
-
-header.hidden, footer.hidden {
+.hidden:is( header, footer) {
     display: none;
 }
 
@@ -227,7 +211,7 @@ text-align: left;
     margin: 0.4em 0 0 2.5em;
 }
 .reveal h2 {
-font-size: 1.3em;
+    font-size: 1.3em;
 }
 .reveal h1 + h2 {
 margin-top: -0.5em;
@@ -259,8 +243,7 @@ font-size: 1.3em;
 .reveal pre {
     border-radius: 0.5em;
     font-size: 0.7em;
-    margin-left: 0;
-    margin-bottom: 1em;
+    margin: 0 auto;
     height: 800px;
 }
 .reveal pre code {
@@ -268,7 +251,7 @@ font-size: 1.3em;
     padding: 0 0.5em;
 }
 .reveal pre.padding code {
-    padding: 0.5em;
+    padding: 1em 0.5em;
 }
 
 pre.center {
@@ -306,7 +289,14 @@ ol {
     opacity: 0.5;
 }
 
-.filename {
+.reveal h1.filename {
+    margin: 0.4em 0 0.5em 2.5em;
+    font-family: monospace;
+}
+
+p.filename {
+    text-align: center;
+    font-size: 0.8em;
     font-family: monospace;
 }
 
@@ -374,6 +364,20 @@ i.center {
     justify-content: center;
 }
 
+
+// QUESTIONS / ANSWER
+
+ul.qanda {
+    width: 100%;
+}
+.question {
+    display: inline-block;
+    width: 50%
+}
+
+.answer {
+    color: var(--ftNavy);
+}
 
 // SPONSORS
 

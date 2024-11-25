@@ -32,6 +32,13 @@
 				<section id="title-slide" data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)" data-background-image="assets/imgs/title.png" data-background-size="contain">
 					<h1>Build your first Code Builder<br/>and VS Code plugin</h1>
 					<h2>Todd Halfpenny</h2>
+					<aside class="notes">
+						<ul>
+							<li>Hullo</li>
+							<li>VS Code Plugins</li>
+							<li>Thank you</li>
+						</ul>
+					</aside>
 				</section>
 				
 
@@ -49,6 +56,11 @@
 						<li>@toddhalfpenny</li>
 					</ul>
 					<img id="todd" src="assets/imgs/todd-mvp.jpg">
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>
 				</section>
 
 				<!-- 
@@ -65,6 +77,11 @@
 						<!-- <li class="fragment">Resources</li> -->
 						<li class="fragment">Q&amp;A</li>
 					</ul>
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>
 				</section>
 
 
@@ -112,10 +129,10 @@
 					</div>
 					<aside class="notes">
 						<ul>
-							<li>What are they</li>
-							<li>Examples</li>
-							<li>What can they do?</li>
-							<li>Why create one of our own</li>
+							<li>Hands up if you're familiar with this site</li>
+							<li>There is an API for all this</li>
+							<li></li>
+							<li></li>
 						</ul>
 					</aside>
 					
@@ -182,10 +199,10 @@
 				-->
 				<section class="has-footer has-header"  data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
 					<h1>What about our use case?</h1>
-
-					<div class="fragment">
-						<p class="filename">package.json</p>
-						<pre><code class="language-json" data-trim data-line-numbers="0|8-11">
+				</section>
+				<section class="has-footer has-header"  data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
+						<h1 class="filename">package.json</h1>
+						<pre class="padding"><code class="language-json" data-trim data-line-numbers="0|8-11">
 ...						
 "contributes": {
 	"commands": [
@@ -201,7 +218,6 @@
 }
 ...					
 						</code></pre>
-					</div>
 					<aside class="notes">
 						<ul>
 							<li>Think about it</li>
@@ -210,10 +226,7 @@
 					</aside>		
 				</section>
 				<section class="has-footer has-header"  data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
-					<h1></h1>
-
-					<div>
-						<p class="filename">extension.js</p>
+					<h1 class="filename">extension.js</h1>
 						<pre><code class="language-typescript" data-trim data-line-numbers="0|3-9|6-7|13-22">
 ...	
 
@@ -240,7 +253,6 @@ async function showInputBox() {
 
 ...
 						</code></pre>
-					</div>
 					<aside class="notes">
 						<ul>
 							<li>Think about it</li>
@@ -250,7 +262,7 @@ async function showInputBox() {
 				</section>
 				<section class="fullvideo" class="fullvideo"
 				data-background-size="contain"
-					data-background-video ="assets/vids/ftp-input.m4v" >
+					data-background-video ="assets/vids/ftp-input.m4v"  data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
 					<aside class="notes">
 						<ul>
 							<li></li>
@@ -263,9 +275,29 @@ async function showInputBox() {
 					===========================================================
 					CALL THE API
 				-->
+				<section class="has-footer has-header"  data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
+					<h1 class="filename">status.service.ts</h1>
+						<pre class="padding"><code class="language-typescript" data-trim data-line-numbers="0|3|4|5-6|">
+...
+
+export async function instanceStatus(instance: string) {
+		const uri = `${API_ENDPOINT}instances/${instance}/status`;
+		const response = await fetch(uri);
+		return await response.json();
+}
+
+...
+</code></pre>
+					<aside class="notes">
+						<ul>
+							<li>Got new service</li>
+							<li></li>
+						</ul>
+					</aside>		
+				</section>
 				<section class="fullvideo" class="fullvideo"
 				data-background-size="contain"
-					data-background-video ="assets/vids/ftp-status.m4v" >
+					data-background-video ="assets/vids/ftp-status.m4v"  data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
 					<aside class="notes">
 						<ul>
 							<li></li>
@@ -278,9 +310,36 @@ async function showInputBox() {
 					===========================================================
 					OUTPUT CHANNELS
 				-->
+				<section class="has-footer has-header"  data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
+					<h1>That's all very good, but...</h1>
+					<div class="fragment">
+					<p class="filename">log.service.ts</p>
+					<pre class="padding"><code class="language-typescript" data-trim data-line-numbers="0|1|4-5|10|">
+import { OutputChannel } from "vscode";
+
+export const activate = (context: ExtensionContext): void => {
+  outputChannel = window.createOutputChannel("SF Org Status");
+  outputChannel.clear();
+};
+
+...
+
+outputChannel.appendLine("Hullo again!");
+
+...
+						</code></pre>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Lots of ways to output info</li>
+							<li>Have you ever run SFDX commands?</li>
+							<li>Let's start with the output channels</li>
+						</ul>
+					</aside>					
+				</section>
 				<section class="fullvideo" class="fullvideo"
 				data-background-size="contain"
-					data-background-video ="assets/vids/ftp-output.m4v" >
+					data-background-video ="assets/vids/ftp-output.m4v"  data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
 					<aside class="notes">
 						<ul>
 							<li></li>
@@ -293,9 +352,36 @@ async function showInputBox() {
 					===========================================================
 					MODAL
 				-->
+				<section class="has-footer has-header"  data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
+					<h1>Better... but not really friendly</h1>
+					<div class="fragment">
+						<p class="filename">extension.ts</p>
+						<pre class="padding"><code class="language-typescript" data-trim data-line-numbers="0|3-4|6-9|11-14">
+const title: instance;
+const statusText = `Status: ${status.status}\n\rEnv:...}`,
+
+const options: MessageOptions = {
+	detail: statusText,
+	modal: true,
+};
+
+return window.showInformationMessage(
+	title,
+	options,
+);
+
+...
+							</code></pre>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Modals</li>
+						</ul>
+					</aside>					
+				</section>
 				<section class="fullvideo" class="fullvideo"
 				data-background-size="contain"
-					data-background-video ="assets/vids/ftp-modal.m4v" >
+					data-background-video ="assets/vids/ftp-modal.m4v"  data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
 					<aside class="notes">
 						<ul>
 							<li></li>
@@ -308,9 +394,50 @@ async function showInputBox() {
 					===========================================================
 					ALIAS + ORG RECORD
 				-->
+				<section class="has-footer has-header"  data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
+					<h1>Which instance <em>am</em> I?</h1>
+					<ul class="qanda">
+						<li><span class="question fragment">Does anything know?</span><span class="answer fragment">Your org does</span></li>
+						<li><span class="question fragment">What's the current org?</span><span class="answer fragment">.sfdx/sfdx-config.json</span></li>
+						<li><span class="question fragment">What about the username?</span><span class="answer fragment">~/.sfdx/aliases.json</span></li>
+						<li><span class="question fragment">Can we query an org via a username?</span><span class="answer fragment">Yes... it took some digging</span></li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li>Modals</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="has-footer has-header"  data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
+						<h1>Which instance <em>am</em> I?</h1>
+					<div class="">
+						<p class="filename">org.service.ts</p>
+						<pre class="padding"><code class="language-typescript" data-trim data-line-numbers="0|1-2|4-6|7-14">
+import { AuthInfo, Connection } 
+	from "@salesforce/core-bundle";		
+
+const connection = await Connection.create({
+	authInfo: await AuthInfo.create({ username: uname }),
+});
+const rawQueryData = await connection.query(
+	"SELECT 
+		InstanceName,
+		isSandbox,
+		TrialExpirationDate
+	FROM
+		Organization",
+);				
+						</code></pre>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Querying the default org</li>
+						</ul>
+					</aside>					
+				</section>
 				<section class="fullvideo" class="fullvideo"
 				data-background-size="contain"
-					data-background-video ="assets/vids/ftp-org-record.m4v" >
+					data-background-video ="assets/vids/ftp-org-record.m4v"  data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
 					<aside class="notes">
 						<ul>
 							<li></li>
@@ -325,7 +452,7 @@ async function showInputBox() {
 				-->
 				<section class="fullvideo" class="fullvideo"
 				data-background-size="contain"
-					data-background-video ="assets/vids/ftp-default-instance.m4v" >
+					data-background-video ="assets/vids/ftp-default-instance.m4v"   data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
 					<aside class="notes">
 						<ul>
 							<li></li>
@@ -338,9 +465,31 @@ async function showInputBox() {
 					===========================================================
 					INVOCATION
 				-->
+				<section class="has-footer has-header"  data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
+					<h1>How else can we invoke this?</h1>
+						
+					<div class="fragment">
+						<p class="filename">package.json</p>
+						<pre class="padding" ><code class="language-json">
+"contributes": {
+	"menus": {
+		"explorer/context": [
+			{
+				"command": "salesforce-status.org-status",
+				"group": "z_commands"
+			}
+		],							
+							</code></pre>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
 				<section class="fullvideo" class="fullvideo"
 				data-background-size="contain"
-					data-background-video ="assets/vids/ftp-menu.m4v" >
+					data-background-video ="assets/vids/ftp-menu.m4v"  data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
 					<aside class="notes">
 						<ul>
 							<li></li>
@@ -353,9 +502,18 @@ async function showInputBox() {
 					===========================================================
 					POLISH
 				-->
+				<section class="has-footer has-header"  data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
+					<h1>Let's take this a step further</h1>
+					<aside class="notes">
+						<ul>
+							<li>More usable output</li>
+							<li>Interactive</li>
+						</ul>
+					</aside>					
+				</section>
 				<section class="fullvideo" class="fullvideo"
 				data-background-size="contain"
-					data-background-video ="assets/vids/ftp-markdown.m4v" >
+					data-background-video ="assets/vids/ftp-markdown.m4v"  data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
 					<aside class="notes">
 						<ul>
 							<li></li>
@@ -368,7 +526,6 @@ async function showInputBox() {
 					SPONSORS
 				-->
 				<section class="has-footer slide-title">
-					<img src="assets/imgs/slide-footer-right-01.png">
 				</section>
 
 
