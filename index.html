@@ -29,24 +29,33 @@
 					===========================================================
 					TITLE
 				-->
-				<section class="slide-title">
-					<img src="assets/imgs/title-slide.svg">
+				<section id="title-slide" data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)" data-background-image="assets/imgs/title.png" data-background-size="contain">
+					<h1>Build your first Code Builder<br/>and VS Code plugin</h1>
+					<h2>Todd Halfpenny</h2>
 				</section>
 				
 
 				<!-- 
 					===========================================================
-					SPONSORS
+					INTRO
 				-->
-				<section class="has-footer slide-title">
-					<img src="assets/imgs/sponsors.svg">
+				<section id="speaker" data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)"  data-background-image="assets/imgs/speaker.png" data-background-size="contain">
+					<h1>Todd Halfpenny</h1>
+					<ul>
+						<li>Mobile Technical Architect @ Caddify</li>
+						<li>Salesforce MVP</li>
+						<li>London Dev Group + London's Calling Organiser</li>
+						<li>Founder @ Shirtforce</li>
+						<li>@toddhalfpenny</li>
+					</ul>
+					<img id="todd" src="assets/imgs/todd-mvp.jpg">
 				</section>
 
 				<!-- 
 					===========================================================
 					AGENDA
 				-->
-				<section class="has-footer">
+				<section class="has-footer has-header" data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
 					<h1>Agenda</h1>
 					<ul>
 						<li class="fragment">Extensions</li>
@@ -63,7 +72,7 @@
 					===========================================================
 					EXTENSIONS
 				-->
-				<section class="has-footer">
+				<section class="has-footer has-header"  data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
 					<h1>So... extensions you say?</h1>
 				</section>
 				<section class="fullvideo" class="fullvideo"
@@ -85,7 +94,7 @@
 					===========================================================
 					WHAT ARE WE GOING TO BUILD
 				-->
-				<section class="has-footer">
+				<section class="has-footer has-header"  data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
 					<h1>And just what are we going to build?</h1>
 					<div class="r-stack">
 						<img
@@ -117,7 +126,7 @@
 					===========================================================
 					LETS GET STARTED
 				-->
-				<section class="has-footer">
+				<section class="has-footer has-header"  data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
 					<h1>Let's get started</h1>
 					<div class="r-stack">
 						<img
@@ -135,7 +144,7 @@
 						</ul>
 					</aside>					
 				</section>
-				<section class="has-footer">
+				<section class="has-footer has-header"  data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
 					<h1>INSTALL THE TOOLS!!</h1>
 						
 					<pre ><code class="language-yaml">
@@ -171,7 +180,7 @@
 					===========================================================
 					WHAT ABOUT OUR USE CASE
 				-->
-				<section class="has-footer">
+				<section class="has-footer has-header"  data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
 					<h1>What about our use case?</h1>
 
 					<div class="fragment">
@@ -200,7 +209,7 @@
 						</ul>
 					</aside>		
 				</section>
-				<section class="has-footer">
+				<section class="has-footer has-header"  data-background-gradient="linear-gradient(to bottom, #78B3ED, #D4F7FF)">
 					<h1></h1>
 
 					<div>
@@ -359,7 +368,7 @@ async function showInputBox() {
 					SPONSORS
 				-->
 				<section class="has-footer slide-title">
-					<img src="assets/imgs/sponsors.svg">
+					<img src="assets/imgs/slide-footer-right-01.png">
 				</section>
 
 
@@ -369,7 +378,7 @@ async function showInputBox() {
 				-->
 				<footer id='footer' class="hidden">
 					<!-- <p class="author"><a href="https://twitter.com/toddhalfpenny">@toddhalfpenny</a></p> -->					
-					<img src="assets/imgs/inspire-east-logo.png">
+					<img src="assets/imgs/slide-footer-right-01.png">
 				</footer>
 		
 			</div>
@@ -392,6 +401,7 @@ async function showInputBox() {
 				progress: false,
 				width: 1920,
 				height: 1200,
+  			transition: 'fade',
 
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ]
 			});
