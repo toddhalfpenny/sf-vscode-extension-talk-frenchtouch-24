@@ -277,6 +277,16 @@ tr.highlight-line td.hljs-ln-numbers {
     font-weight: bold;
 }
 
+li.code {
+    background-color: #2c415b;
+    border-radius: 16px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin: 0.2em 0;
+    padding: 0 0 0 0.8em;
+}
+
 #resources li {
     line-height: 1.1em;
     margin-bottom: 1.5em;
