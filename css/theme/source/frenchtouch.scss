@@ -184,12 +184,24 @@ footer {
     background-image: none;
 }
 
+#resource-bitly {
+    float: right;
+    max-width: 20%;
+    background: white;
+    border-radius: 1.2em;
+}
+
 // Typography
 
-.href {
+a.href {
     display: block;
     font-size:0.6em;
-    color: var(--accent);
+    color: var(--ftNavy);
+}
+
+a.href:hover {
+    color: black;
+    text-decoration: underline;
 }
 
 .reveal .slides {
